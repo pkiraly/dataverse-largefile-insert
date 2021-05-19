@@ -45,7 +45,11 @@ edit common.sh and adjust the following variables:
 php merge-info.php
 ```
 
-### copy files
+It creates two files
+* `copy-files.sh` commands to copy files 
+* `update-file-info.sql` SQL command to update file information
+
+### copy files from the UPLOAD_DIR to its registered place with rename to its registered name
 ```
 chmod +x copy-files.sh
 sudo -u dataverse ./copy-files.sh
