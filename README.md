@@ -1,6 +1,6 @@
 # Dataverse large file insert tool
 
-Due to the problems with the underying Java application server (Payara or Glassfish) it is not possible to upload large files (> 2 GB) via the web user interface neither the API. This set of scripts provides a way to insert file information to Dataverse once the files has been uploaded to the server. The base idea behind this is that as administrator somehow you can find a way outside of Dataverse to upload the large files into a server and save them into some directory. The scripts 
+Due to the problems with the underying Java application server (Payara or Glassfish) it is not possible to upload large files (> 2 GB) via [Dataverse](https://github.com/IQSS/dataverse) the web user interface neither the API. This set of scripts provides a way to insert file information to Dataverse once the files has been uploaded to the server. The base idea behind this is that as administrator somehow you can find a way outside of Dataverse to upload the large files into a server and save them into some directory. The scripts 
 * create dummy files with the same name, extension and directory structure but with 0 size, and upload them to a given dataset via API
 * fetch all information from the uploaded files (size, MD5 hash) and from the database (file IDs, real location) and merge these information together
 * copy the files into its proper place
@@ -59,3 +59,5 @@ sudo -u dataverse ./copy-files.sh
 ```
 psql -U [username] -W dvndb -f update-file-info.sql
 ```
+
+Note: there is tool called [Data Capture Module](https://github.com/sbgrid/data-capture-module) (see [usage description](https://guides.dataverse.org/en/5.3/developers/big-data-support.html?highlight=large#data-capture-module-dcm) in Dataverse documentation) but I had problems with it, so finally created these scripts instead.
