@@ -1,0 +1,14 @@
+# the URL of the Dataverse instance
+export SERVER_URL=
+
+# the Dataverse API key (the owner of the key has the right to add files)
+export API_KEY=
+
+# the persistent identifier of the dataset
+export PERSISTENT_IDENTIFIER=
+
+# the directory where Dataverse stores the files
+export BASE_DIR=
+
+# the directory of the uploaded files
+export UPLOAD_DIR=
