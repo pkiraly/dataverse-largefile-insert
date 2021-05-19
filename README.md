@@ -6,6 +6,8 @@ Due to the problems with the underying Java application server (Payara or Glassf
 * copy the files into its proper place
 * update the database with the real file size and md5 hash 
 
+Note: there is tool called [Data Capture Module](https://github.com/sbgrid/data-capture-module) (see [usage description](https://guides.dataverse.org/en/5.3/developers/big-data-support.html?highlight=large#data-capture-module-dcm) in Dataverse documentation) but I had problems with it, so finally created these scripts instead.
+
 ## Usage
 ### create configuration
 
@@ -59,5 +61,3 @@ sudo -u dataverse ./copy-files.sh
 ```
 psql -U [username] -W dvndb -f update-file-info.sql
 ```
-
-Note: there is tool called [Data Capture Module](https://github.com/sbgrid/data-capture-module) (see [usage description](https://guides.dataverse.org/en/5.3/developers/big-data-support.html?highlight=large#data-capture-module-dcm) in Dataverse documentation) but I had problems with it, so finally created these scripts instead.
