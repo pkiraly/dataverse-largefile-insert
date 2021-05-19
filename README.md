@@ -1,3 +1,7 @@
+# Dataverse large file insert tool
+
+Due to the problems with the underying Java application server (Payara or Glassfish) it is not possible to upload large files (> 2 GB) via the web user interface neither the API. This set of scripts provides a way to insert file information to Dataverse once the files has been uploaded to the server.
+
 ```
 cp common.template common.sh
 chmod +x ./common.sh
