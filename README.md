@@ -14,7 +14,13 @@ cp common.template common.sh
 chmod +x ./common.sh
 ```
 
-edit common.sh and adjust all the variables
+edit common.sh and adjust the following variables:
+
+* `SERVER_URL` the URL of the Dataverse instance
+* `API_KEY` the Dataverse API key (the owner of the key has the right to add files)
+* `PERSISTENT_IDENTIFIER` the persistent identifier of the dataset
+* `BASE_DIR` the directory where Dataverse stores the files
+* `UPLOAD_DIR` the directory of the uploaded files
 
 ### upload files to the UPLOAD_DIR directory
 
