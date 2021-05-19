@@ -1,32 +1,51 @@
 # Dataverse large file insert tool
 
-Due to the problems with the underying Java application server (Payara or Glassfish) it is not possible to upload large files (> 2 GB) via the web user interface neither the API. This set of scripts provides a way to insert file information to Dataverse once the files has been uploaded to the server.
+Due to the problems with the underying Java application server (Payara or Glassfish) it is not possible to upload large files (> 2 GB) via the web user interface neither the API. This set of scripts provides a way to insert file information to Dataverse once the files has been uploaded to the server. The base idea behind this is that as administrator somehow you can find a way outside of Dataverse to upload the large files into a server and save them into some directory. The scripts 
+* create dummy files with the same name, extension and directory structure but with 0 size, and upload them to a given dataset via API
+* fetch all information from the uploaded files (size, MD5 hash) and from the database (file IDs, real location) and merge these information together
+* copy the files into its proper place
+* update the database with the real file size and md5 hash 
+
+## Usage
+### create configuration
 
 ```
 cp common.template common.sh
 chmod +x ./common.sh
 ```
 
-# * edit common.sh, adjust DOI, BASE_DIR
-# * delete current content of BASE_DIR
-# * upload new files to BASE_DIR
-# then...
+edit common.sh and adjust all the variables
 
-# create and upload dummy files
+### upload files to the UPLOAD_DIR directory
+
+* delete current content of UPLOAD_DIR
+* upload new files to UPLOAD_DIR
+
+### create and upload dummy files
+```
 ./create-dummy-files.sh
 ./upload-dummy-files.sh
+```
 
-# extract information for individual files
+### extract information for individual files
+```
 ./list-file-size.sh
 ./create-md5.sh
 ./retrieve-files-from-api.sh
+```
 
-# merge all information together
+### merge all information together
+```
 php merge-info.php
+```
 
-# copy files
+### copy files
+```
 chmod +x copy-files.sh
 sudo -u dataverse ./copy-files.sh
+```
 
-# update database with MD5 and file size
+### update database with MD5 and file size
+```
 psql -U [username] -W dvndb -f update-file-info.sql
+```
