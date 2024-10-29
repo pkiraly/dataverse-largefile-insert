@@ -21,7 +21,7 @@ if (file_exists('update-file-info.sql'))
 
 foreach ($records as $record) {
   $copy_cmd = sprintf(
-      "cp %s/%s %s/%s/%s\n",
+      "cp '%s/%s' %s/%s/%s\n",
       $config['UPLOAD_DIR'] . $config['SUFFIX'], $record->path,
       $config['BASE_DIR'], $config['PERSISTENT_IDENTIFIER'], $record->storageIdentifier2
     );
