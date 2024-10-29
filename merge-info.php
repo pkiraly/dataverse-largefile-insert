@@ -69,8 +69,9 @@ function readRecords() {
     $record->filename = str_replace('"', '', $record->filename);
     $record->storageIdentifier = str_replace('"', '', $record->storageIdentifier);
     $record->storageIdentifier2 = str_replace('file://', '', $record->storageIdentifier);
-    if (isset($all[md5($record->filename)])) {
-      $record2 = $all[$record->filename];
+    $fullPath = $record->path . '/' . $record->filename
+    if (isset($all[$fullPath])) {
+      $record2 = $all[$fullPath];
       $record->md5 = $record2->md5;
       $record->size = $record2->size;
       $record->path = $record2->path;
