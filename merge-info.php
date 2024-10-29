@@ -109,7 +109,7 @@ function readCsv($csvFile, $id = '', $separator = ",") {
           }
           $record = (object)array_combine($header, $values);
           if ($id != '' && isset($record->{$id})) {
-            $records[md5(trim($record->{$id}))] = $record;
+            $records[$record->{$id}] = $record;
           } else {
             $records[] = $record;
           }
