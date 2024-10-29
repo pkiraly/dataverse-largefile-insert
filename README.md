@@ -22,7 +22,7 @@ php merge-info.php
 
 # copy files
 chmod +x copy-files.sh
-sudo -u dataverse ./copy-files.sh
+sudo -u glassfish ./copy-files.sh
 
 # update database with MD5 and file size
 psql -U [username] -W dvndb -f update-file-info.sql
