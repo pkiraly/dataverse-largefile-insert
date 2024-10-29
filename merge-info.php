@@ -51,7 +51,7 @@ function readRecords() {
     if (isset($md5[$path])) {
       $record->md5 = $md5[$path]->md5;
       $filename = preg_replace('/(^.*\/)?/', '', $record->path);
-      $all[$filename] = $record;
+      $all[$path] = $record;
     } else {
       echo $path, ' ', json_encode($record), ' is not in MD5 array', LN;
     }
