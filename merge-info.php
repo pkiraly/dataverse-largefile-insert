@@ -61,7 +61,7 @@ function readRecords() {
   echo "/all\n";
 
 
-  $data = readCsv('data.csv', 'filename', "\t");
+  $data = readCsv('data.csv', 'id', "\t");
   echo 'number of files from API: ', count($data), LN;
   # echo "data:\n";
   # print_r($data);
