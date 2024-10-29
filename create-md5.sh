@@ -9,4 +9,4 @@ fi
 
 echo "md5,path" | sed -r 's/,/\t/g' > $OUTPUT
 
-find $UPLOAD_DIR -type f -exec md5sum {} \; | sed -r 's/  /\t/' | sed  "s|$UPLOAD_DIR||g" >> $OUTPUT
+find $UPLOAD_DIR -type f -exec md5sum {} \; | sed -r 's/  /\t/' | sed  "s|$UPLOAD_DIR/||g" >> $OUTPUT
