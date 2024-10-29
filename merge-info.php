@@ -56,8 +56,8 @@ function readRecords() {
       echo $path, ' ', json_encode($record), ' is not in MD5 array', LN;
     }
   }
-  echo "all:\n";
-  print_r($all);
+  # echo "all:\n";
+  # print_r($all);
   echo "/all\n";
 
 
