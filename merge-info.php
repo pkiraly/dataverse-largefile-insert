@@ -76,15 +76,19 @@ function readRecords() {
       $record->md5 = $record2->md5;
       $record->size = $record2->size;
       $record->path = $record2->path;
+      unset($all[$fullPath]);
     } else {
       echo json_encode($record), ' is not in MD5 array', LN;
     }
-
-
   }
-  echo "data:\n";
-  print_r($data);
-  echo "/data\n";
+  # echo "data:\n";
+  # print_r($data);
+  # echo "/data\n";
+
+  echo "remaning files:\n";
+  print_r($all);
+  echo "/remaning files\n";
+
   $full_records = array_filter($data, function($record) {
     return isset($record->md5) && !empty($record->md5)
            && isset($record->size) && !empty($record->size)
