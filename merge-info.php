@@ -129,13 +129,15 @@ function readCsv($csvFile, $id = '', $separator = ",") {
 }
 
 function readConfig() {
-  $config_raw = parse_ini_file('common.sh');
+  $from_env = true;
   $config = [];
+  $config_raw = parse_ini_file('common.sh');
   foreach ($config_raw as $key => $value) {
+    if (preg_match('/^#/', $key))
+      continue;
     $clean_key = str_replace('export ', '', $key);
-    $config[$clean_key] = ($clean_key === 'PERSISTENT_IDENTIFIER')
-                        ? str_replace('doi:', '', $value)
-                        : $value;
+    $config[$clean_key] = $from_env ? getenv($clean_key) : $value;
   }
+  $config['PERSISTENT_IDENTIFIER'] = str_replace('doi:', '', $config['PERSISTENT_IDENTIFIER']);
   return $config;
 }
