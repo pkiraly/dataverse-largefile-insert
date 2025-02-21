@@ -19,6 +19,8 @@ if (file_exists('copy-files.sh'))
 if (file_exists('update-file-info.sql'))
   unlink('update-file-info.sql');
 
+print_r($config)
+
 foreach ($records as $record) {
   $copy_cmd = sprintf(
       "cp '%s/%s' %s/%s/%s\n",
@@ -42,9 +44,9 @@ function readRecords() {
 
   $sizes = readCsv('sizes.csv', 'path', "\t");
   $md5 = readCsv('md5.csv', 'path', "\t");
-  echo 'md5', LN;
-  echo json_encode($md5), LN;
-  echo '/md5', LN;
+  // echo 'md5', LN;
+  // echo json_encode($md5), LN;
+  // echo '/md5', LN;
 
   $all = [];
   foreach ($sizes as $path => $record) {
