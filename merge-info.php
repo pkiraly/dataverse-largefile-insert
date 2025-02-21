@@ -20,7 +20,7 @@ if (file_exists('update-file-info.sql'))
   unlink('update-file-info.sql');
 
 print_r($config);
-exit;
+// exit;
 
 foreach ($records as $record) {
   $copy_cmd = sprintf(
