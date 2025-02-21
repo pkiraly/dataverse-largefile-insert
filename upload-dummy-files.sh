@@ -8,7 +8,7 @@ upload_file() {
   FILENAME=$1
   echo "Uploading $FILENAME"
   echo "PID: $PERSISTENT_IDENTIFIER"
-  DIRECTORY=$(echo $(dirname "$FILENAME") | sed "s|$DIR/||")
+  DIRECTORY=$(echo $(dirname "$FILENAME") | sed -E "s|$DIR/?||")
   echo $DIRECTORY
   JSON='jsonData={"description":"","directoryLabel":"'$DIRECTORY'","categories":["Data"], "restrict":"false"}'
   echo $JSON

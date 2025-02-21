@@ -44,6 +44,7 @@ edit common.sh and adjust the following variables:
 
 ### merge all information together
 ```
+source common.sh
 php merge-info.php
 ```
 
