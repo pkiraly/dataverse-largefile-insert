@@ -4,7 +4,7 @@
 
 define('LN', "\n");
 
-$config = readConfig();
+$config = readConfig(true); // use env variables
 # echo 'config: ', "\n";
 # print_r($config);
 # echo '/config ', "\n";
@@ -133,8 +133,8 @@ function readCsv($csvFile, $id = '', $separator = ",") {
   return $records;
 }
 
-function readConfig() {
-  $from_env = false;
+function readConfig($from_env = false) {
+  // $from_env = false;
   $config = [];
   $config_raw = parse_ini_file('common.sh');
   foreach ($config_raw as $key => $value) {
