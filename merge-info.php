@@ -70,7 +70,7 @@ function readRecords() {
     $record->filename = str_replace('"', '', $record->filename);
     $record->storageIdentifier = str_replace('"', '', $record->storageIdentifier);
     $record->storageIdentifier2 = str_replace('file://', '', $record->storageIdentifier);
-    $fullPath = $record->directory != 'dummy' 
+    $fullPath = ($record->directory != 'dummy' && $record->directory != '') 
               ? $record->directory . '/' . $record->filename 
               : $record->filename;
     if (isset($all[$fullPath])) {
