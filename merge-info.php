@@ -53,7 +53,7 @@ function readRecords() {
       $filename = preg_replace('/(^.*\/)?/', '', $record->path);
       $all[$path] = $record;
     } else {
-      echo 'path: ', $path, ' is not in MD5 array', ' full record: ', json_encode($record) LN;
+      echo 'path: ', $path, ' is not in MD5 array. Full record: ', json_encode($record), LN;
     }
   }
   # echo "all:\n";
