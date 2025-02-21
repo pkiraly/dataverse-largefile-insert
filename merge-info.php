@@ -19,7 +19,7 @@ if (file_exists('copy-files.sh'))
 if (file_exists('update-file-info.sql'))
   unlink('update-file-info.sql');
 
-print_r($config)
+print_r($config);
 
 foreach ($records as $record) {
   $copy_cmd = sprintf(
