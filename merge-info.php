@@ -56,8 +56,8 @@ function readRecords() {
       echo 'path: ', $path, ' is not in MD5 array. Full record: ', json_encode($record), LN;
     }
   }
-  # echo "all:\n";
-  # print_r($all);
+  echo "all:\n";
+  print_r($all);
   echo "/all\n";
 
 
@@ -78,7 +78,7 @@ function readRecords() {
       $record->path = $record2->path;
       unset($all[$fullPath]);
     } else {
-      echo json_encode($record), ' is not in MD5 array', LN;
+      echo 'fullPath: ', $fullPath, ' is not in the "all" array. Record: ', json_encode($record), LN;
     }
   }
   # echo "data:\n";
