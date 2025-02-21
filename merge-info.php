@@ -20,6 +20,7 @@ if (file_exists('update-file-info.sql'))
   unlink('update-file-info.sql');
 
 print_r($config);
+exit;
 
 foreach ($records as $record) {
   $copy_cmd = sprintf(
@@ -133,7 +134,7 @@ function readCsv($csvFile, $id = '', $separator = ",") {
 }
 
 function readConfig() {
-  $from_env = true;
+  $from_env = false;
   $config = [];
   $config_raw = parse_ini_file('common.sh');
   foreach ($config_raw as $key => $value) {
