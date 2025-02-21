@@ -42,9 +42,9 @@ function readRecords() {
 
   $sizes = readCsv('sizes.csv', 'path', "\t");
   $md5 = readCsv('md5.csv', 'path', "\t");
-  // echo 'md5', LN;
-  # echo json_encode($md5), LN;
-  // echo '/md5', LN;
+  echo 'md5', LN;
+  echo json_encode($md5), LN;
+  echo '/md5', LN;
 
   $all = [];
   foreach ($sizes as $path => $record) {
@@ -53,7 +53,7 @@ function readRecords() {
       $filename = preg_replace('/(^.*\/)?/', '', $record->path);
       $all[$path] = $record;
     } else {
-      echo $path, ' ', json_encode($record), ' is not in MD5 array', LN;
+      echo 'path: ', $path, ' is not in MD5 array', ' full record: ', json_encode($record) LN;
     }
   }
   # echo "all:\n";
